@@ -1,0 +1,7 @@
+.modal-hidden, .complete-order-pop-hidden {
+   display: none;
+}
+
+.order-modal, .complete-order-pop {
+   display: block;
+}
