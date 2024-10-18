@@ -8,12 +8,19 @@ function renderMenu() {
     foodData.forEach(item => {
         menuHTML += `
             <div class="menuItem">
-                <h3>${item.food}</h3>
-                <p>${item.ingredients.join(", ")}</p>
-                <p>Price: $${item.price}</p>
-                <p>${item.image}</p>
+                <div class="menuItemImg">
+                ${item.image}
+                </div>
+                <div class="menuItemInfo">
+                <span id="item-name">${item.food}</span>
+                <p id="item-ingredients">${item.ingredients.join(", ")}</p>
+                <p id="item-price">$${item.price}</p>
+                </div>
+                <div class="menuBtn">
                 <button class="addToOrderBtn">+</button>
+                </div>
             </div>
+            <hr>
         `
     })
     
@@ -29,25 +36,27 @@ function renderMenu() {
 
 ////MODAL
 let currentTotal = 0;
+const orderModal = document.getElementById("order-modal")
 const itemsAdded = document.getElementById("items-added")
+const totalPrice = document.getElementById("total-price")
+const completeOrderOne = document.getElementById("complete-order-1")
+const completeOrderTwo = document.getElementById("complete-order-2")
 
-// Activate the modal
-function openModal(foodName, foodPrice, foodImage) {
-    const modal = document.getElementById("order-modal")
-    modal.classList.remove("modal-hidden")
+////FUNCTION - OPEN FIRST MODAL
+function openModal(foodName, foodPrice) {
+    orderModal.classList.remove("modal-hidden")
 
 // Create const for a new div to hold each name, price, and removal
     const itemIndividual = document.createElement("div")
 
 // Add specific food item and removal button to list
     itemIndividual.innerHTML = `
-        <p>${foodImage} ${foodName} - $${foodPrice} <button class="removeItemBtn">Remove</button></p>
+        <p>${foodName} - $${foodPrice} <button class="removeItemBtn">Remove</button></p>
         `
     itemsAdded.appendChild(itemIndividual) 
 
 // Calculate the totals
     currentTotal += foodPrice
-    const totalPrice = document.getElementById("total-price")
     totalPrice.innerHTML = `
         Total Price: $${currentTotal}
         `
@@ -57,24 +66,42 @@ function openModal(foodName, foodPrice, foodImage) {
     removeButton.addEventListener("click", () => removeItem(itemIndividual, foodPrice))
 }
 
+////FUNCTION - REMOVE ITEM
 // Function to remove an item from the modal
 function removeItem(itemIndividual, foodPrice) {
     itemsAdded.removeChild(itemIndividual)
 
 // Update the total price
     currentTotal -= foodPrice
-    const totalPrice = document.getElementById("total-price")
     totalPrice.innerHTML = `
         Total Price: $${currentTotal}
         `
 }
 
-// Complete order
+//// DISPLAY SECOND MODAL
+// Complete order - Step 1 - Confirm order
     const completeOrderBtn = document.getElementById("complete-order")
-    const completeOrderDiv = document.getElementById("complete-order-div")
     completeOrderBtn.addEventListener("click",(event) => {
         event.preventDefault() // prevents button in form from resetting/reloading
-        completeOrderDiv.classList.remove("complete-order-pop-hidden")
+        completeOrderOne.classList.remove("complete-order-card-hidden")
+    })
+
+////DISPLAY THIRD MODAL
+// Complete order - Step 2 - Confirm payment and thanks
+    const completeOrderPayBtn = document.getElementById("pay")
+    completeOrderPayBtn.addEventListener("click",(event) => {
+        event.preventDefault()
+        orderModal.classList.add("modal-hidden")
+        completeOrderOne.classList.add("complete-order-card-hidden")
+        completeOrderTwo.classList.remove("complete-order-2-hidden")
+
+// Extract name from form and display message
+        const form = document.getElementById("form")
+        const thankYou = document.getElementById("thank-you-custom")
+        const formName = document.getElementById("name").value
+        thankYou.innerHTML = `
+            <b>Hi, ${formName}! Thanks for your order.</b>
+        `
     })
 
 renderMenu()

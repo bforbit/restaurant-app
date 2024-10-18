@@ -1,7 +1,66 @@
-.modal-hidden, .complete-order-pop-hidden {
+body {
+   margin: 0;
+   font-family: "Inter", sans-serif;
+}
+
+.container {
+   width: 600px;
+   margin: 0 auto;
+}
+
+.menuItem {
+   font-family: "Smythe", system-ui;
+   width: 580px;
+   padding: 25px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center; 
+   /* Note: align-items vertically centers the content */
+}
+
+.menuItemImg {
+   font-family: "Inter", sans-serif;
+   font-size: 50px;
+   width: 5%;
+}
+
+.menuItemInfo {
+   width: 50%;
+}
+
+#item-name {
+   font-size: 28px;
+}
+
+#item-ingredients {
+   font-size: 16px;
+   color: #8B8B8B;
+}
+
+#item-price {
+   font-size: 20px;
+}
+
+.menuBtn {
+   flex-shrink: 0;
+   text-align: right;
+   
+}
+
+.menuBtn button {
+   border-radius: 50%;
+   border: 1px solid #DEDEDE;
+   font-size: 25px;
+   background-color: white;
+   width: 50px;
+   height: 50px;
+   text-align: center;
+}
+
+.modal-hidden, .complete-order-card-hidden, .complete-order-2-hidden {
    display: none;
 }
 
-.order-modal, .complete-order-pop {
+.order-modal, .complete-order-card, complete-order-2 {
    display: block;
 }
