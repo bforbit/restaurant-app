@@ -14,8 +14,8 @@
    
 <div class="container">
    <header>
-      <h1>Jimmy's Diner</h1>
-      <h2>The best burgers and pizzas in town.</h2>
+      <p id="title">Jimmy's Diner</p>
+      <p id="subtitle">The best burgers and pizzas in town.</p>
    </header>
    
    <div class="menu" id="menu">
@@ -26,18 +26,19 @@
    <div id="order-modal" class="modal-hidden">
       <div class="order-modal">
          <p id="order-title">Your Order</p>
-         <div id="items-added"><p class="order-details">Items Added:</p></div>
+         <div id="items-added"></div>
+         <hr class="hr-total-price">
          <div id="total-price"><p class="order-details"></p></div>
-         <button id="complete-order">Complete Order</button>
+         <button id="complete-order">Complete order</button>
       </div>
    </div>
 
    <div id="complete-order-1" class="complete-order-card-hidden">
       <form id="form" class="complete-order-card">
-         <h2>Enter card details</h2>
-         <input type="text" id="name" value="Enter your name" onfocus="this.value=''" required></input>
-         <p><input type="text" id="card-number" value="Enter card number" onfocus="this.value=''" required></input></p>
-         <p><input type="text" id="cvv" value="Enter CVV" onfocus="this.value=''" required></input></p>
+         <p id="enter-card-details">Enter card details</p>
+         <input type="text" id="name" placeholder="Enter your name" required></input>
+         <p><input type="text" id="card-number" placeholder="Enter card number" required></input></p>
+         <p><input type="text" id="cvv" placeholder="Enter CVV" required></input></p>
          <p><input type="submit" id="pay" value="Pay"></input></p>
       </form>
    </div>

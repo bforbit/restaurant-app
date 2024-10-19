@@ -51,14 +51,14 @@ function openModal(foodName, foodPrice) {
 
 // Add specific food item and removal button to list
     itemIndividual.innerHTML = `
-        <p>${foodName} - $${foodPrice} <button class="removeItemBtn">Remove</button></p>
+        <p>${foodName} <span id="food-price">$${foodPrice}</span> <button class="removeItemBtn">remove</button></p>
         `
     itemsAdded.appendChild(itemIndividual) 
 
 // Calculate the totals
     currentTotal += foodPrice
     totalPrice.innerHTML = `
-        Total Price: $${currentTotal}
+        Total Price: <span id="total-price-number">$${currentTotal}</span>
         `
 
 // Add event listener to the remove button
@@ -90,7 +90,11 @@ function removeItem(itemIndividual, foodPrice) {
 // Complete order - Step 2 - Confirm payment and thanks
     const completeOrderPayBtn = document.getElementById("pay")
     completeOrderPayBtn.addEventListener("click",(event) => {
-        event.preventDefault()
+
+    // if form is correctly filled
+    if (form.checkValidity()) {
+    event.preventDefault()
+
         orderModal.classList.add("modal-hidden")
         completeOrderOne.classList.add("complete-order-card-hidden")
         completeOrderTwo.classList.remove("complete-order-2-hidden")
@@ -100,8 +104,13 @@ function removeItem(itemIndividual, foodPrice) {
         const thankYou = document.getElementById("thank-you-custom")
         const formName = document.getElementById("name").value
         thankYou.innerHTML = `
-            <b>Hi, ${formName}! Thanks for your order.</b>
-        `
+            Thanks, ${formName}! Your order is on its way!
+            `
+     // if form is not correctly filled
+    } else {
+    form.reportValidity() 
+
+    }
     })
 
 renderMenu()

@@ -1,6 +1,6 @@
 body {
    margin: 0;
-   font-family: "Inter", sans-serif;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
@@ -8,9 +8,37 @@ body {
    margin: 0 auto;
 }
 
+/* HEADER */
+
+header {
+   height: 167px;
+   font-family: "Smythe", system-ui;
+   background-image: url(burger-header.png);
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+
+header p {
+   margin: 0;
+   color: white;
+   padding-left: 46px;
+}
+
+#title {
+   font-size: 39px;
+   padding-top: 30px;
+}
+
+#subtitle {
+   font-size: 22px;
+   padding-top: 8px;
+}
+
+/* MENU */
+
 .menuItem {
    font-family: "Smythe", system-ui;
-   width: 580px;
+   width: 550px;
    padding: 25px;
    display: flex;
    justify-content: space-between;
@@ -20,7 +48,7 @@ body {
 
 .menuItemImg {
    font-family: "Inter", sans-serif;
-   font-size: 50px;
+   font-size: 70px;
    width: 5%;
 }
 
@@ -42,9 +70,7 @@ body {
 }
 
 .menuBtn {
-   flex-shrink: 0;
    text-align: right;
-   
 }
 
 .menuBtn button {
@@ -57,10 +83,121 @@ body {
    text-align: center;
 }
 
+hr {
+   width: 90%;
+   border: 1px solid #D2D2D2;
+}
+
+.order-modal {
+   font-family: "Smythe", system-ui;
+   text-align: center;
+}
+
+#order-title, #items-added, #total-price {
+   font-size: 28px;
+}
+
+#items-added, #total-price {
+   text-align: left;
+   margin: 0 40px;
+}
+
+#food-price, #total-price-number {
+   font-size: 20px;
+   float: right;
+}
+
+.removeItemBtn {
+   font-size: 12px;
+   background-color: white;
+   border: none;
+   color: #BBBBBB;
+}
+
+.hr-total-price {
+   border: 1px solid #393333;
+}
+
+#complete-order {
+   color: white;
+   font-size: 16px;
+   font-weight: bold;
+   margin-top: 25px;
+   padding: 24px 139px;
+   background-color: #16DB99;
+   border: none;
+   width: 90%;
+}
+
+/* CARD DETAILS */
+
+.complete-order-card {
+   position: fixed;
+   right: 0;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   margin: auto;
+   padding: 10px;
+   height: 475px;
+   width: 524px;
+   background-color: white;
+   border: 1px solid black;
+   border-radius: 5px;
+   text-align: center;
+   box-shadow: 5px 5px 255px 4px rgb(0 0 0 / .5);
+}
+
+#enter-card-details {
+   font-size: 24px;
+   font-weight: bold;
+   padding-bottom: 25px;
+}
+
+.complete-order-card input {
+   width: 476px;
+   height: 71px;
+   border: 1px solid #757575;
+   border-radius: 5px;
+}
+
+.complete-order-card input[type=text] {
+   color: #757575;
+   padding: 0 20px;
+   font-size: 20px;
+}
+
+.complete-order-card input[type=submit] {
+   background-color: #16DB99;
+   color: white;
+   border: none;
+   font-size: 20px;
+   font-weight: bold;
+   margin-top: 30px;
+}
+
+/* ORDER COMPLETE */
+
+#thank-you-custom {
+   width: 90%;
+   height: 120px;
+   background-color: #ECFDF5;
+   color: #065F46;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   margin: 40px auto;
+   font-family: "Smythe", system-ui;
+   font-size: 32px;
+}
+
+/* HIDDEN & VISIBLE MODALS */
+
 .modal-hidden, .complete-order-card-hidden, .complete-order-2-hidden {
    display: none;
 }
 
-.order-modal, .complete-order-card, complete-order-2 {
+.order-modal, .complete-order-card, .complete-order-2 {
    display: block;
 }
