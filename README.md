@@ -1,4 +1,4 @@
-This fictional restaurant app displays a simple food menu rendered through JavaScript followed by separate modals to take the customer through the online ordering process. This is the Module 5 project presented by Scrimba, and the design was adapted from an original creation on Figma.
+This fictional restaurant app displays a simple food menu rendered through JavaScript followed by separate modals to take the customer through the online ordering process. This is the Module 5 project presented by Scrimba, and the design was adapted from Figma template.
 
 <a href="https://famous-meringue-df8de6.netlify.app/">View app on Netlify</a>
 
